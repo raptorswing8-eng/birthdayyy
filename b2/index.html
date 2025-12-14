@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Note For You - Combined Experience</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        /* --- 1. WEB 10 (INTRO PAGE) STYLES --- */
+
+        :root {
+            /* Web 10 Blue/Teal Theme */
+            --color-pink: #8ad4ed;
+            --color-white: #fff;
+            --color-black: #333;
+            --color-text-pink: #088e8a;
+            --color-heart: #6bdfe7;
+            /* Web 12 Pink Theme */
+            --pink-main: #14a9e8;
+            /* Bright Pink */
+            --pink-light: #52cef0;
+            /* Off-White/Pink Background */
+            --pink-soft: #ffebee;
+            /* Soft Pink Accent */
+            --text-dark: #374151;
+            /* Dark Text */
+            --text-gray: #6b7280;
+            --heart-red: #ef4444;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Body (Hidden by default, will be overridden by .page.active) */
+        body {
+            position: relative;
+            font-size: 16px;
+            height: 100vh;
+            display: flex;
+            /* Ensure body can center the container */
+            justify-content: center;
+            align-items: center;
+            background-color: var(--pink-light);
+            /* Fallback BG */
+            color: var(--text-dark);
+            /* Fallback text */
+            overflow: hidden;
+            /* Prevent body scroll */
+        }
+
+        /* --- WEB 10 INTRO SPECIFIC CONTAINER (#wrapper is the content area) --- */
+        #page0 {
+            /* Styles to make Web 10 page look full screen */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--color-pink), var(--color-pink));
+            /* Grid Pattern Background */
+            background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 1) 76%, transparent 77%, transparent);
+            background-size: 80px 80px;
+            overflow: hidden;
+            z-index: 1;
+            display: none;
+            /* Controlled by .page.active */
+            flex-direction: column;
+            /* Needed for display: flex */
+        }
+
+        #page0.active {
+            display: flex;
+        }
+
+        /* ... [REST OF WEB 10 CSS STYLES - Unmodified] ... */
+        .flag__birthday {
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-200px);
+            animation: translateYFlag 1.5s 2s forwards;
+        }
+
+        @keyframes translateYFlag {
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        .flag__birthday .flag__left {
+            transform: rotate(-10deg) translate(-20px, 30px);
+        }
+
+        .flag__birthday .flag__right {
+            transform: rotate(10deg) translate(20px, 30px) scaleX(-1);
+        }
+
+        .content {
+            width: 100%;
+            position: relative;
+            display: flex;
+            padding-top: 3rem;
+        }
+
+        .content .left,
+        .content .right {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content .left {
+            width: 40%;
+        }
+
+        .content .right {
+            width: 60%;
+        }
+
+        .left .btn {
+            transform: scale(0);
+            animation: scaleCricle 2s 16s forwards ease-in-out;
+        }
+
+        #btn__letter {
+            position: relative;
+            margin-top: 30px;
+            background-color: var(--color-text-pink);
+            outline: none;
+            padding: 5px 15px;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: 3px solid var(--color-black);
+            font-family: "Sriracha", cursive;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transform: scale(1);
+            transition: all .5s ease-in-out;
+        }
+
+        #btn__letter:active {
+            transform: scale(0.7);
+        }
+
+        #btn__letter i {
+            margin-left: 5px;
+        }
+
+        #btn__letter:hover {
+            border-color: var(--color-heart);
+            background-color: var(--color-heart);
+            color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        #btn__letter:hover i {
+            animation: rotateHeart 1s infinite linear;
+        }
+
+        @keyframes rotateHeart {
+            0%,
+            50%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(12deg);
+            }
+
+            75% {
+                transform: rotate(-12deg);
+            }
+        }
+
+        .title {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-family: "Titan One", sans-serif;
+            font-size: 3rem;
+            flex-direction: column;
+            perspective: 1000px;
+        }
+
+        .title .happy,
+        .title .birthday {
+            position: relative;
+            text-shadow: 4px 4px var(--color-black), -4px 4px var(--color-black), 4px -4px var(--color-black), -4px -4px var(--color-black), 4px 8px 0 var(--color-black);
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+        }
+
+        .title .happy {
+            color: var(--color-white);
+        }
+
+        .title .happy span,
+        .title .birthday span {
+            transform: translateY(50px);
+            opacity: 0;
+            visibility: hidden;
+            animation: txtTranslateY .5s var(--t) forwards;
+        }
+
+        @keyframes txtTranslateY {
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .title .birthday {
+            color: var(--color-text-pink);
+        }
+
+        .title .hat {
+            position: absolute;
+            right: 45px;
+            top: -350px;
+            transform: rotate(-40deg);
+            z-index: -1;
+            animation: topHat 4s 7s forwards ease;
+        }
+
+        @keyframes topHat {
+            20%,
+            30% {
+                top: -30px;
+                transform-origin: left;
+                transform: rotate(-40deg);
+            }
+
+            35%,
+            100% {
+                top: -30px;
+                transform: rotate(0deg);
+            }
+        }
+
+        .date__of__birth,
+        .name {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--color-text-pink);
+            border-radius: 50px;
+            margin-top: 20px;
+            font-family: "Sriracha", cursive;
+        }
+
+        .date__of__birth {
+            border: 3px solid var(--color-black);
+            position: relative;
+            transform: translateY(-100px);
+            z-index: -1;
+            opacity: 0;
+            visibility: hidden;
+            width: 0px;
+            animation: dateOfBirth 5s 9s forwards;
+        }
+
+        @keyframes dateOfBirth {
+            20%,
+            40% {
+                width: 0px;
+                height: 0;
+                transform: translateY(0px);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            45% {
+                transform: translateY(0px);
+                opacity: 1;
+                visibility: visible;
+                width: 300px;
+                height: 0px;
+            }
+
+            50%,
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+                visibility: visible;
+                width: 300px;
+                height: 50px;
+            }
+        }
+
+        .name {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0px 20px;
+            border: 3px solid var(--color-black);
+            font-family: 'Dancing Script', cursive;
+            white-space: nowrap;
+        }
+
+        .date__of__birth span,
+        .name span {
+            font-weight: bold;
+            margin: 0px 40px;
+        }
+
+        .date__of__birth span {
+            font-size: 1.2rem;
+        }
+
+        .name span {
+            font-size: 1.7rem;
+        }
+
+        .right .box__account {
+            position: relative;
+            transform: translateY(700px);
+            animation: topBoxImage 8s 7s forwards ease-in;
+        }
+
+        @keyframes topBoxImage {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .content .right .image {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            border: 6px solid var(--color-black);
+        }
+
+        .content .right .image img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .cricle {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0);
+            animation: scaleCricle 3s 15s forwards ease-in-out;
+        }
+
+        @keyframes scaleCricle {
+            0% {
+                transform: scale(0);
+            }
+
+            10% {
+                transform: scale(1.3);
+            }
+
+            20% {
+                transform: scale(0.7);
+            }
+
+            30%,
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .text__cricle {
+            width: 100px;
+            height: 100px;
+            background-color: var(--color-text-pink);
+            border-radius: 50%;
+            border: 5px solid var(--color-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateCricle 5s linear infinite;
+        }
+
+        @keyframes rotateCricle {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .text__cricle span {
+            top: 0%;
+            left: 50%;
+            position: absolute;
+            color: var(--color-black);
+            transform: rotate(calc(var(--i) * 24deg));
+            transform-origin: 0 45px;
+            font-family: "Sriracha", cursive;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .fa-heart {
+            color: var(--color-heart);
+            filter: drop-shadow(0 0 3px var(--color-heart));
+            animation: scaleHeart 1s infinite linear;
+        }
+
+        .cricle .fa-heart {
+            position: absolute;
+            transform: scale(0.85);
+        }
+
+        @keyframes scaleHeart {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .right .balloon_one {
+            position: absolute;
+            top: -70px;
+            left: -70px;
+            animation: balloon1 2s infinite linear;
+        }
+
+        @keyframes balloon1 {
+            0%,
+            50%,
+            100% {
+                transform-origin: bottom right;
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform-origin: bottom right;
+                transform: rotate(3deg);
+            }
+
+            75% {
+                transform-origin: bottom right;
+                transform: rotate(-3deg);
+            }
+        }
+
+        .right .balloon_two {
+            position: absolute;
+            top: 170px;
+            right: -65px;
+            z-index: -1;
+            transform: rotate(10deg);
+            animation: balloon2 2s infinite linear;
+        }
+
+        @keyframes balloon2 {
+            0%,
+            50%,
+            100% {
+                transform-origin: bottom left;
+                transform: rotate(10deg);
+            }
+
+            25% {
+                transform-origin: bottom left;
+                transform: rotate(7deg);
+            }
+
+            75% {
+                transform-origin: bottom left;
+                transform: rotate(13deg);
+            }
+        }
+
+        .decorate_star {
+            position: absolute;
+            transform: scale(0);
+            background-color: var(--color-black);
+            clip-path: polygon(0 50%, 35% 35%, 50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%);
+            animation: scaleCricle 3s var(--t) forwards, scaleStar 2s 16s infinite ease-in-out;
+        }
+
+        .decorate_star.star1 {
+            width: 20px;
+            height: 20px;
+            top: 75px;
+            left: 300px;
+        }
+
+        .decorate_star.star2 {
+            width: 15px;
+            height: 20px;
+            top: 35px;
+            right: 360px;
+        }
+
+        .decorate_star.star3 {
+            width: 14px;
+            height: 14px;
+            top: 290px;
+            left: 630px;
+        }
+
+        .decorate_star.star4 {
+            width: 18px;
+            height: 18px;
+            bottom: 60px;
+            left: 35px;
+        }
+
+        .decorate_star.star5 {
+            width: 16px;
+            height: 18px;
+            bottom: 140px;
+            left: 500px;
+        }
+
+        @keyframes scaleStar {
+            25% {
+                transform: scale(0.8);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .decorate_bottom {
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+        }
+
+        .decorate_flower--one {
+            position: absolute;
+            top: 250px;
+            left: 50px;
+            transform: scale(0);
+            animation: scaleCricle 3s var(--t) forwards ease-in-out;
+        }
+
+        .decorate_flower--two {
+            position: absolute;
+            top: 225px;
+            left: 540px;
+            transform: scale(0);
+            animation: scaleCricle 3s var(--t) forwards ease-in-out;
+        }
+
+        .decorate_flower--three {
+            position: absolute;
+            top: 150px;
+            right: 235px;
+            transform: scale(0);
+            animation: scaleCricle 3s var(--t) forwards ease-in-out;
+        }
+
+        .smiley__icon {
+            position: absolute;
+            bottom: 180px;
+            left: 600px;
+            transform: scale(0);
+            animation: scaleCricle 3s 15s forwards ease-in-out;
+        }
+
+        /* --- 2. WEB 12 (APP) STYLES --- */
+
+        /* Container for the phone-like view */
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            height: 90vh;
+            /* Adjust height for better mobile simulation */
+            background: white;
+            position: relative;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            overflow-x: hidden;
+            /* Using a simple color/emoji background pattern since image assets are not present */
+            background: repeating-linear-gradient(45deg, var(--pink-soft), var(--pink-soft) 10px, white 10px, white 20px);
+            display: none;
+            /* Hide until Page 1 is active */
+        }
+
+        .app-container.active {
+            display: block;
+            /* Show container when a page inside is active */
+        }
+
+        /* --- Page Transitions (for Pages 1-6) --- */
+        .page {
+            display: none;
+            padding: 30px 20px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100%;
+            animation: fadeIn 0.5s ease;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Override Web 10 style: Only pages 1-6 need this specific active style inside .app-container */
+        .page:not(#page0).active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Components (Pages 1-6) --- */
+        .app-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #1f2937;
+        }
+
+        .app-container h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #1f2937;
+        }
+
+        .app-container p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .btn-main {
+            background-color: var(--pink-main);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 80%;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(240, 98, 146, 0.4);
+            transition: transform 0.1s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Playlist Specific Styles for Selection */
+        .album-cover-selection:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        /* --- Page 1 Specific (Welcome) --- */
+        .note-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            margin-top: 40px;
+            border: 1px solid #eeeeee;
+            position: relative;
+        }
+
+        .note-card h1 {
+            font-size: 1.75rem;
+        }
+
+        .note-card p {
+            margin-bottom: 25px;
+        }
+
+        .video-accent {
+            position: absolute;
+        }
+
+        #butterflies {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+        }
+
+        #p1-cloud {
+            top: -20px;
+            right: 10px;
+            font-size: 30px;
+        }
+
+        #p1-star {
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+        }
+
+        /* --- Page 2 Specific (Love Letter) --- */
+        .letter-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            text-align: left;
+            margin-top: 15px;
+            position: relative;
+            min-height: 300px;
+            border: 1px solid #f3e8d2;
+        }
+
+        .letter-container h2 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .letter-container p {
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        #p2-cat {
+            position: absolute;
+            top: -30px;
+            right: -10px;
+            font-size: 50px;
+        }
+
+        /* --- Page 3 Specific (Playlist) --- */
+        .playlist-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .album-art-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .album-art-container .placeholder-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin-right: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: var(--pink-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .track-info strong {
+            font-size: 1rem;
+            color: #1f2937;
+        }
+
+        .track-info span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Page 4 Specific (Flip Cards) --- */
+        #p4-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .flip-card {
+            height: 150px;
+            perspective: 1000px;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .flip-card-front {
+            background: white;
+        }
+
+        .flip-card-front .placeholder-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            font-size: 40px;
+        }
+
+        .flip-card-back {
+            background: var(--pink-soft);
+            transform: rotateY(180deg);
+            font-weight: 500;
+        }
+
+        .flip-card-back small {
+            color: var(--text-gray);
+            margin-top: 5px;
+            font-style: italic;
+            font-size: 0.75rem;
+        }
+
+        /* Message Unlocked Alert */
+        .alert-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+            border: 2px solid var(--pink-main);
+        }
+
+        .alert-modal .btn-main {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* --- Page 5 Specific (Final Letter) --- */
+        #p5-scroll-content {
+            background: #fffcf5;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #f3e8d2;
+            width: 100%;
+        }
+
+        #p5-scroll-content h2 {
+            font-size: 0.9rem;
+            color: var(--pink-main);
+            margin-bottom: 5px;
+        }
+
+        #p5-scroll-content p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 15px;
+            color: var(--pink-main);
+            font-weight: bold;
+        }
+
+        .seal-animation {
+            margin: 20px 0;
+            font-size: 40px;
+        }
+
+        /* --- Page 6 Specific (Success) --- */
+        #p6-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        #p6-text {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // Note: Replaced image paths with emojis since files are not in the single file.
+        const ASSET_PATHS = {
+            p1Butterflies: 'assets/butterflies.png', // Replaced with 🦋 below
+            p1Cloud: 'assets/cloud.png', // Replaced with ☁️ below
+            catPfp: 'assets/cat-pfp-sticker.png', // Replaced with 🐱 below
+            albumArt: 'assets/spiderman-hello-kitty-album.png', // Replaced with 🎶 below
+            card1Front: 'assets/card-hk-1.png', // Replaced with 🎀 below
+            card2Front: 'assets/card-love-you.png', // Replaced with ✨ below
+            card3Front: 'assets/card-spiderman.png', // Replaced with 🕸️ below
+            backgroundSong: 'assets/background-song.mp3'
+        };
+    </script>
+
+    <audio id="bg-music-intro" src="audio/music.mp3"></audio>
+    <audio id="backgroundMusic" loop>
+        <source src="${ASSET_PATHS.backgroundSong}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="playlistMusic" loop></audio>
+
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div class="alert-modal hidden" id="cardModal">
+        <h2>All Messages Unlocked!</h2>
+        <p style="color: var(--text-dark); margin-bottom: 0;">..........</p>
+        <button class="btn-main" onclick="closeModal(); nextPage(5);">Open the Final Letter</button>
+    </div>
+
+    <section id="page0" class="page active">
+        <div class="flag__birthday">
+            <img src="./images/1.png" alt="" width="350" class="flag__left">
+            <img src="./images/1.png" alt="" width="350" class="flag__right">
+        </div>
+
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span><span style="--t: 4.2s;">a</span><span style="--t: 4.4s;">p</span><span style="--t: 4.6s;">p</span><span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span><span style="--t: 5.2s;">i</span><span style="--t: 5.4s;">r</span><span style="--t: 5.6s;">t</span><span style="--t: 5.8s;">h</span><span style="--t: 6s;">d</span><span style="--t: 6.2s;">a</span><span style="--t: 6.4s;">y</span>
+                    </h1>
+                    <div class="hat">
+                        <img src="./images/hat.png" alt="" width="130">
+                    </div>
+                </div>
+                <div class="date__of__birth">
+                    <span>15 DEC</span>
+                </div>
+                <div class="btn">
+                    <button id="btn__letter" onclick="transitionToApp()">
+                        <div class="mail">
+                            Click Here Tubelight..
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="box__account">
+                    <div class="image">
+                        <img src="./images/unnamed.png" alt="">
+                    </div>
+                    <div class="name">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Dear Tubelight</span>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="balloon_one">
+                        <img width="100px" src="./images/balloon1.png" alt="">
+                    </div>
+                    <div class="balloon_two">
+                        <img width="100px" src="./images/balloon2.png" alt="">
+                    </div>
+                </div>
+                <div class="cricle">
+                    <div class="text__cricle">
+                        <span style="--i: 1;">h</span><span style="--i: 2;">a</span><span style="--i: 3;">p</span><span style="--i: 4;">p</span><span style="--i: 5;">y</span>
+                        <span style="--i: 6;">-</span><span style="--i: 7;">b</span><span style="--i: 8;">i</span><span style="--i: 9;">r</span><span style="--i: 10;">t</span><span style="--i: 11;">h</span>
+                        <span style="--i: 12;">d</span><span style="--i: 13;">a</span><span style="--i: 14;">y</span><span style="--i: 15;">-</span>
+                    </div>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_star star3" style="--t: 15.4s;"></div>
+        <div class="decorate_star star4" style="--t: 15.6s;"></div>
+        <div class="decorate_star star5" style="--t: 15.8s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--two" style="--t: 15.3s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--three" style="--t: 15.6s;">
+            <img width="20" src="./images/decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_bottom">
+            <img src="./images/decorate.png" alt="" width="100">
+        </div>
+        <div class="smiley__icon">
+            <img src="./images/smiley_icon.png" alt="" width="100">
+        </div>
+    </section>
+    <div class="app-container" id="appContainer">
+
+        <section id="page1" class="page">
+            <div id="p1-star" class="video-accent">⭐</div>
+            <div id="butterflies" class="video-accent">🦋</div>
+            <div id="p1-cloud" class="video-accent">☁️</div>
+
+            <div class="note-card">
+                <div style="font-size: 0.8rem; color: var(--pink-main); margin-bottom: 10px;">A Note for You 💖</div>
+                <h1>Hey Tubelight! Happy birthday</h1>
+                <p>☆*: .｡. o(≧▽≦)o .｡.:*☆ </p>
+                <div style="font-size: 0.75rem; color: #9ca3af; margin-top: -10px; margin-bottom: 20px;"> </div>
+                <button class="btn-main" onclick="nextPage(2)">Click hereee ⚡</button>
+            </div>
+        </section>
+
+        <section id="page2" class="page">
+            <h2 style="font-size: 1.1rem; margin-top: 10px;">A bday Letter ❤️</h2>
+            <div style="font-size: 0.8rem; color: var(--text-gray); margin-bottom: 20px;">From my pc to yours</div>
+
+            <div class="letter-container">
+                <div id="p2-cat" class="video-accent">🐱</div>
+                <h2 style="font-size: 1rem;">My dearest Tubelight,</h2>
+                <p>
+                    Here you go. Five lines. Mild chaos, friendly roast, legally affectionate.
+                    Another year older and somehow still iconic.
+                    You age like fine wine with a little extra attitude.
+                    Thanks for being my unpaid therapist and partner in bad decisions.
+                    Hope today brings cake, chaos, and compliments you fully deserve.
+                    Stay loud, stay weird, don’t ever become responsible.
+
+                </p>
+                <div style="text-align: right; font-style: italic; font-size: 0.8rem; color: var(--pink-main); margin-top: 20px;">With all wierdness.</div>
+                <div style="text-align: right; font-size: 0.7rem; color: var(--text-gray); margin-top: 5px;">*Tapped on: Tuesday, December 15, 2025</div>
+            </div>
+            <button class="btn-main" onclick="nextPage(3)">Continue To Next ✨</button>
+        </section>
+
+        <section id="page3" class="page">
+            <h2 style="font-size: 1.1rem; margin-top: 10px;">A Dedicated Playlist For You</h2>
+            <div style="font-size: 0.8rem; color: var(--text-gray); margin-bottom: 20px;">I hope this tiny gift makes you smile ✨</div>
+
+            <div class="playlist-card">
+                <div class="album-art-container" id="currentTrackDisplay">
+                    <div class="placeholder-img" id="mainAlbumIcon">🎶</div>
+                    <div class="track-info">
+                        <strong id="currentTrackTitle">Subhanallah</strong>
+                        <span id="currentTrackArtist">Click an emoji below to play!</span>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 0.85rem; color: var(--text-dark); margin: 10px 0;">Select a Track:</h3>
+
+                <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+                    <div class="album-cover-selection" 
+                         data-title="Subhanallah" 
+                         data-artist="You own this song - dedicated to you." 
+                         data-song="audio/song1.mp3" 
+                         onclick="selectTrack(this)"
+                         style="flex-shrink: 0; width: 50px; height: 50px; background: var(--pink-main); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; cursor: pointer; border: 2px solid var(--pink-main); transition: border 0.3s;"
+                         id="selectedCover">
+                        💖
+                    </div>
+                    
+                    <div class="album-cover-selection" 
+                         data-title="prem ki naiya" 
+                         data-artist="Pritam" 
+                         data-song="audio/song2.mp3" 
+                         onclick="selectTrack(this)"
+                         style="flex-shrink: 0; width: 50px; height: 50px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; border: 2px solid transparent; transition: border 0.3s;">
+                        ☀️
+                    </div>
+                    
+                    <div class="album-cover-selection" 
+                         data-title="Khabar" 
+                         data-artist="Twin strings" 
+                         data-song="audio/song3.mp3" 
+                         onclick="selectTrack(this)"
+                         style="flex-shrink: 0; width: 50px; height: 50px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; border: 2px solid transparent; transition: border 0.3s;">
+                        💫
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn-main" onclick="stopMusic(); nextPage(4)">Continue to Next ➡️</button>
+        </section>
+
+
+        <section id="page4" class="page">
+            <h2 style="font-size: 1.1rem; margin-top: 10px;">Some Special Cards For You</h2>
+            <p style="font-size: 0.8rem;">Click each card to reveal a special message!</p>
+
+            <div id="p4-grid">
+                <div class="flip-card" id="card1" onclick="handleFlip(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="placeholder-img">🎀</div>
+                        </div>
+                        <div class="flip-card-back">
+                            U ll always be a tubelight !
+                            <small>Tap to flip back</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" id="card2" onclick="handleFlip(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="placeholder-img">✨</div>
+                        </div>
+                        <div class="flip-card-back">
+                            You don't even have to try - you just make everything around you feel lighter, warmer,
+                            better. ✨
+                            <small>Tap to flip back</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card" id="card3" onclick="handleFlip(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="placeholder-img">🕸️</div>
+                        </div>
+                        <div class="flip-card-back">
+                            Thanks for being as mentally unstable as i am...
+                            <small>Tap to flip back</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p id="counter" style="margin-top: 20px; font-weight: bold; color: var(--pink-main);">0 of 3 messages
+                discovered! Keep exploring</p>
+        </section>
+
+        <section id="page5" class="page">
+            <h2 style="font-size: 1.1rem; margin-top: 10px;">Final Letter</h2>
+            <div style="font-size: 0.8rem; color: var(--text-gray); margin-bottom: 20px;">to tubelight,</div>
+
+            <div id="p5-scroll-content">
+                <p>You’re the calm I lean on and the laugh that fixes my mood.</p>
+                <p>I hope this tiny corner of the world made you smile and reminded you how much you matter.</p>
+                <p>I’ll keep making memories, big and small, right by your side.</p>
+                <p>Always cheering for you, in every little universe.</p>
+                <p class="signature">Always yours,<br>Your Friend</p>
+            </div>
+
+            <div class="seal-animation" id="sealIcon" style="font-size: 40px; margin-top: 15px;">✉️</div>
+            <p id="sealStatus" style="font-size: 0.9rem; margin-top: 0; margin-bottom: 5px;">Sealing will finish the
+                experience.</p>
+            <button class="btn-main" id="sealBtn" onclick="sealLetter()">Seal this Letter ❤️</button>
+            <button class="btn-main" style="background: var(--pink-soft); color: var(--text-dark); box-shadow: none;"
+                onclick="window.location.reload()">Restart</button>
+        </section>
+
+        <section id="page6" class="page">
+            <div id="p6-icon">💖</div>
+            <div id="p6-text">Letter Sealed</div>
+            <p style="margin-bottom: 30px;">Hehe..</p>
+
+            <button class="btn-main" onclick="window.location.reload()">Experience Again ✨</button>
+            <button class="btn-main" style="background: var(--pink-soft); color: var(--text-dark); box-shadow: none;">Send
+                a Virtual Chamat 🤚</button>
+        </section>
+    </div>
+    <script>
+        // --- COMMON LOGIC ---
+        let flippedCount = 0;
+        const totalCards = 3;
+        let isModalShown = false;
+
+        // --- MUSIC/PLAYLIST LOGIC (NEW) ---
+        const playlistMusic = document.getElementById('playlistMusic');
+        // Initialize with the default song cover for style management
+        let currentSelectedCover = document.getElementById('selectedCover'); 
+
+        function stopMusic() {
+            if (playlistMusic) {
+                playlistMusic.pause();
+                playlistMusic.currentTime = 0; // Rewind
+            }
+        }
+
+        function selectTrack(element) {
+            const songPath = element.getAttribute('data-song');
+            const title = element.getAttribute('data-title');
+            const artist = element.getAttribute('data-artist');
+
+            // 1. Update the display to show the selected track details
+            document.getElementById('currentTrackTitle').textContent = title;
+            document.getElementById('currentTrackArtist').textContent = artist;
+            document.getElementById('mainAlbumIcon').textContent = element.textContent; // Update the main icon
+
+            // 2. Manage Selection Style
+            // Deselect previous cover
+            if (currentSelectedCover) {
+                currentSelectedCover.style.border = '2px solid transparent';
+                currentSelectedCover.style.color = 'initial'; // Reset text color
+                currentSelectedCover.style.background = '#eee'; // Reset background color
+                
+                // Keep the first track's original coloring when deselected, as it was special
+                if (currentSelectedCover.id === 'selectedCover') {
+                     currentSelectedCover.style.background = 'var(--pink-main)';
+                     currentSelectedCover.style.color = 'white';
+                }
+            }
+            
+            // Select new cover and apply active style
+            element.style.border = '2px solid var(--heart-red)';
+            element.style.color = 'var(--text-dark)'; 
+            element.style.background = 'var(--pink-soft)';
+            currentSelectedCover = element;
+
+            // 3. Play the new song
+            if (playlistMusic) {
+                playlistMusic.src = songPath;
+                playlistMusic.play().catch(e => console.log("Playback blocked by browser policy. Please interact with the page first.", e));
+            }
+        }
+        // --- END MUSIC/PLAYLIST LOGIC ---
+
+
+        // Function to transition from Web 10 (Page 0) to Web 12 App (Page 1) - MODIFIED
+        function transitionToApp() {
+            // 1. Stop Web 10 music
+            const introMusic = document.getElementById('bg-music-intro');
+            if (introMusic) {
+                introMusic.pause();
+            }
+
+            // 2. Hide Web 10 elements and show the App Container
+            document.getElementById('page0').classList.remove('active');
+            document.getElementById('appContainer').classList.add('active');
+
+            // Set default track info when entering the app
+            document.getElementById('currentTrackTitle').textContent = 'Dil Cheeze Tujhe Dedi';
+            document.getElementById('currentTrackArtist').textContent = 'Click an emoji below to play!';
+
+            nextPage(1); // Go to the first app page
+        }
+
+        // --- ORIGINAL APP NAVIGATION/CARD LOGIC (Unmodified except for use of new functions) ---
+
+        function nextPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.page:not(#page0)').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show target page
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            
+            // If leaving page 3, ensure music stops
+            if (pageNumber !== 3) {
+                 stopMusic();
+            }
+        }
+
+        function handleFlip(card) {
+            const wasFlipped = card.classList.contains('flipped');
+            card.classList.toggle('flipped');
+
+            // Count only when flipping *to* the back
+            if (!wasFlipped) {
+                if (!card.hasAttribute('data-flipped')) {
+                    card.setAttribute('data-flipped', 'true');
+                    flippedCount++;
+                    checkCompletion();
+                }
+            }
+        }
+
+        function checkCompletion() {
+            document.getElementById('counter').textContent = `${flippedCount} of ${totalCards} messages discovered! Keep exploring`;
+            if (flippedCount === totalCards && !isModalShown) {
+                showModal();
+            }
+        }
+
+        function showModal() {
+            isModalShown = true;
+            document.getElementById('cardModal').classList.remove('hidden');
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('cardModal').classList.add('hidden');
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function sealLetter() {
+            document.getElementById('sealIcon').style.animation = 'pulse 1s 3 ease-in-out';
+            document.getElementById('sealStatus').textContent = 'Sealed!';
+            document.getElementById('sealBtn').disabled = true;
+            setTimeout(() => {
+                nextPage(6);
+            }, 1500);
+        }
+
+        // Example pulse animation for the seal
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = '@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.3); color: var(--heart-red);} 100% { transform: scale(1); }}';
+        document.head.appendChild(styleSheet);
+        
+    </script>
+</body>
+
+</html>
